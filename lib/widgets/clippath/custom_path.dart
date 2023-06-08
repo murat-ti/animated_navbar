@@ -10,15 +10,14 @@ class CustomPath extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     var path = Path();
-
-    final avgPoint = (startValue - endValue) / 2;
-    final countedValue = value >= (startValue - avgPoint)
-        ? value
-        : (((size.height - (startValue - avgPoint)) / avgPoint) * (startValue - avgPoint - value) +
+    final avgPoint = (startValue + endValue) / 2;
+    final countedValue = value <= (startValue + avgPoint)
+        ? (size.height - value)
+        : (((size.height - (startValue + avgPoint)) / avgPoint) * (startValue + avgPoint + value) -
             (size.height - avgPoint));
 
     path.lineTo(0, size.height);
-    path.quadraticBezierTo(size.width * 0.5, size.height, size.width * 0.48, countedValue);
+    path.quadraticBezierTo(size.width * 0.48, size.height, size.width * 0.5, countedValue);
     path.lineTo(size.width * 0.52, countedValue);
     path.quadraticBezierTo(size.width * 0.52, size.height, size.width, size.height);
     path.lineTo(size.width, 0);

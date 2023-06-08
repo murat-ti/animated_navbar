@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../core/init/route/route.dart';
-import '../core/init/route/route_paths.dart';
+import 'core/init/route/route.dart';
+import 'core/init/route/route_paths.dart';
 
 void main() {
   runApp(const MainApp());
@@ -13,10 +13,8 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: RoutePaths.thirdRoute,
+      initialRoute: RoutePaths.home,
       onGenerateRoute: generateRoute,
     );
   }
 }
-
-

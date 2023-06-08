@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import '../../../view/first_route.dart';
 import '../../../view/second_route.dart';
+import '../../../view/third_route.dart';
 import 'route_paths.dart';
 
 Route<dynamic>? generateRoute(settings) {
   switch (settings.name) {
     case RoutePaths.secondRoute:
       return CustomFadeRoute(page: const SecondRoute(), settings: settings);
+    case RoutePaths.thirdRoute:
+      return MaterialPageRoute(builder: (context) => const ThirdRoute(), settings: settings);
     default:
       return MaterialPageRoute(builder: (context) => const FirstRoute(), settings: settings);
   }

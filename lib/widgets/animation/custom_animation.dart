@@ -74,7 +74,7 @@ class CustomAnimationState extends State<CustomAnimation> with SingleTickerProvi
                       : x1 - details.delta.dx;
               y1 = (y1 == y2)
                   ? y1
-                  : ((y1 - details.delta.dy) > y2)
+                  : (y1 < 0 || (y1 - details.delta.dy) > y2)
                       ? widget.coordinates.endY
                       : y1 - details.delta.dy;
 
